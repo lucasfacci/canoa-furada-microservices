@@ -61,17 +61,17 @@ public class ReservaCabineController {
 		String encodedAuth = "Basic " + Base64.getEncoder().encodeToString(auth.getBytes());
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
-	    headers.add("Authorization", encodedAuth);
-        HttpEntity<String> params = new HttpEntity<String>("parameters", headers);
+	    	headers.add("Authorization", encodedAuth);
+        	HttpEntity<String> params = new HttpEntity<String>("parameters", headers);
         
-        ResponseEntity<JsonNode> response = null;
-        JsonNode cabines = null;
+		ResponseEntity<JsonNode> response = null;
+		JsonNode cabines = null;
         
-        try {
-    		response = restTemplate.exchange(url, HttpMethod.GET, params, JsonNode.class);
-        } catch (Exception e) {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e);
-        }
+		try {
+			response = restTemplate.exchange(url, HttpMethod.GET, params, JsonNode.class);
+		} catch (Exception e) {
+				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e);
+		}
 
 		cabines = response.getBody();
 		ArrayList<JsonNode> cabinesIdeais = new ArrayList<JsonNode>();
