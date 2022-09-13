@@ -70,7 +70,7 @@ public class ReservaCabineController {
 		try {
 			response = restTemplate.exchange(url, HttpMethod.GET, params, JsonNode.class);
 		} catch (Exception e) {
-				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e);
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e);
 		}
 
 		cabines = response.getBody();
