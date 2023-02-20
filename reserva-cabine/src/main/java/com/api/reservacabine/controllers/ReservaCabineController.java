@@ -114,7 +114,7 @@ public class ReservaCabineController {
 	}
 	
 	@DeleteMapping("/reservas/{id}")
-	public ResponseEntity<Object> deletarCabine(@PathVariable int id) {
+	public ResponseEntity<Object> deletarReserva(@PathVariable int id) {
 		Optional<Reserva> optionalReservaBean = dao.findById(id);
 		if (optionalReservaBean.isPresent()) {
 			dao.delete(optionalReservaBean.get());
